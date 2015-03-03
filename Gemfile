@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+gem 'activeadmin', github: 'activeadmin'
 gem 'carrierwave'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'fog'
