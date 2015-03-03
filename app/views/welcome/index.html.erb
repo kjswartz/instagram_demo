@@ -1,2 +1,12 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<% @posts.each do |post| %>
+  <div class="row">
+    <div class="col-md-3 text-right"><%= post.user.username %></div>
+    <div class="col-md-9">
+      <div>
+        <%= image_tag post.photo.feed.url %>
+      </div>
+      <%= post.description %>
+    </div>
+  </div>
+
+<% end %>
