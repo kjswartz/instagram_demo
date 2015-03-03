@@ -1,6 +1,6 @@
 puts "Creating users..."
-=begin
-20.times do |x|
+
+15.times do |x|
   puts "Creating user #{x}"
   name = Faker::Name.name
   User.create(username:Faker::Internet.user_name(name),
@@ -10,7 +10,7 @@ puts "Creating users..."
               remote_avatar_url: Faker::Avatar.image )
 
 end
-=end
+
 puts "Creating photos for each user..."
 
 User.all.each do |user|
