@@ -1,6 +1,9 @@
 <% @posts.each do |post| %>
   <div class="row">
-    <div class="col-md-3 text-right"><%= post.user.username %></div>
+    <div class="col-md-3 text-right">
+      <%= post.user.username %>
+      <%= image_tag post.user.avatar.thumb.url, class: "user_avatar" %>
+    </div>
     <div class="col-md-9">
       <div>
         <%= image_tag post.photo.feed.url %>

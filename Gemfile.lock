@@ -41,6 +41,7 @@ GEM
       activerecord (>= 2.3.0)
       rake (>= 0.8.7)
     arel (6.0.0)
+    awesome_print (1.6.1)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
@@ -69,6 +70,8 @@ GEM
     erubis (2.7.0)
     excon (0.44.3)
     execjs (2.3.0)
+    faker (1.4.3)
+      i18n (~> 0.5)
     fission (0.5.0)
       CFPropertyList (~> 2.2)
     fog (1.28.0)
@@ -252,10 +255,12 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
+  awesome_print
   byebug
   carrierwave
   coffee-rails (~> 4.1.0)
   dotenv-rails
+  faker
   fog
   jbuilder (~> 2.0)
   jquery-rails
