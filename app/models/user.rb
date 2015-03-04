@@ -10,6 +10,7 @@
 #  bio        :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  admin      :boolean          default("false")
 #
 
 require 'uri'
@@ -28,4 +29,12 @@ class User < ActiveRecord::Base
 
   # Carrierwave
   mount_uploader :avatar, AvatarUploader
+
+  # Scopes
+  scope :admin, -> {where(admin: true)}
+  scope :non_admin, -> {where(admin: false)}
+  scope :has_website, -> {where("website is not NULL")}
+  scope :has_bio, -> {where("bio is not NULL")}
+
+
 end

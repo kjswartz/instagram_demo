@@ -2,6 +2,9 @@ ActiveAdmin.register User do
 
   permit_params :avatar, :username, :name, :website, :bio
 
+  scope :admin
+  scope :non_admin
+  
   index do
     selectable_column
     column :avatar do |user|
