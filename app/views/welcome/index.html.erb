@@ -1,19 +1,5 @@
 <% @posts.each do |post| %>
-  <div class="row">
-    <div class="col-md-3 text-right">
-      <%= post.user.username %>
-      <%= image_tag post.user.avatar.thumb.url, class: "user_avatar" %>
-    </div>
-    <div class="col-md-6">
-      <div>
-        <%= image_tag post.photo.feed.url %>
-      </div>
-      <%= post.description %>
-    </div>
-    <div class="col-md-3">
-    </div>
-  </div>
-
+  <%= render :partial => 'posts/post', locals: {post: post} %>
 <% end %>
 
 <div class="row">
