@@ -1,0 +1,12 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">
+        <%= image_tag "instagram-logo-icon.png", width: '30' %>
+      </a>
+      <% if signed_in? %>
+        <p class="navbar-text">Signed in as <%= current_user.name %></p>
+      <% end %>
+    </div>
+  </div>
+</nav>
