@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-md-3">
+  </div>
+  <div class="col-md-6">
+    <h1>Edit Profile</h1>
+    <%= form_for(current_user, :url => account_update_path, :html => {:multipart => true}) do |f| %>
+      <% if current_user.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(current_user.errors.count, "error") %> prohibited from saving your account updates:</h2>
+
+          <ul>
+            <% current_user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <div class="form-group">
+        <%= f.label :name %><br>
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= image_tag current_user.avatar.thumb.url %>
+        <%= f.label :avatar %><br>
+        <%= f.file_field :avatar %>
+        <%= f.hidden_field :avatar_cache %>
+      </div>
+      <div class="form-group">
+        <%= f.label :username %><br>
+        <%= f.text_field :username, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :website %><br>
+        <%= f.text_field :website, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :bio %><br>
+        <%= f.text_area :bio, class: "form-control" %>
+      </div>
+      <div class="actions">
+        <%= f.submit "Submit", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+
+  </div>
+  <div class="col-md-3">
+  </div>
+</div>

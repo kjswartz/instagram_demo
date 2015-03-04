@@ -1,11 +1,9 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">
-        <%= image_tag "instagram-logo-icon.png", width: '30' %>
-      </a>
+      <%= link_to image_tag("instagram-logo-icon.png", width: '30'), root_path, class: "navbar-brand" %>
       <% if signed_in? %>
-        <p class="navbar-text">Signed in as <%= current_user.name %></p>
+        <p class="navbar-text">Signed in as <%= link_to current_user.name, account_edit_path %></p>
       <% end %>
     </div>
   </div>
