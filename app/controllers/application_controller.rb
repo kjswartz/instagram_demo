@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
 
   before_action :current_user
 
+  def authenticate_admin_user!
+    redirect_to root_path if !current_user.admin?
+  end
+
   helper_method :current_user, :signed_in?
 
   def current_user
