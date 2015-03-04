@@ -1,5 +1,7 @@
 ActiveAdmin.register User do
 
+  permit_params :avatar, :username, :name, :website, :bio
+
   index do
     selectable_column
     column :avatar do |user|
@@ -17,7 +19,17 @@ ActiveAdmin.register User do
     actions
   end
 
-  permit_params :avatar, :username, :name, :website, :bio
 
+  form do |f|
+    inputs do
+      f.input :username
+      f.input :name
+      f.input :website, :hint => 'Use the format http://domainname.com'
+      f.input :avatar
+      f.input :bio, :hint => 'Please limit to 500', :as => :text, :input_html => { :rows => 10, :cols => 20,
+      :maxlength => 500  }
+      f.actions
+    end
+  end
 
 end
