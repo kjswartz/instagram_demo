@@ -1,6 +1,7 @@
 <div class="row">
   <div class="col-md-3 text-right">
-    <strong><%= post.user.username %></strong>
+    <strong><%= post.user.username %></strong><br/>
+    <%= time_ago_in_words(post.created_at) %> ago
     <%= image_tag post.user.avatar.thumb.url, class: "user_avatar" %>
   </div>
   <div class="col-md-6">
