@@ -1,5 +1,22 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:unlike, :like, :show, :edit, :update, :destroy]
+
+  def like
+    #PostLike.where(user: current_user, post: @post).first_or_create
+
+    PostLike.find_or_create_by(user: current_user, post: @post)
+
+    #if PostLike.where(user: current_user, post: @post).count == 0
+    #  PostLike.create(user: current_user, post: @post)
+    #end
+
+    redirect_to @post
+  end
+
+  def unlike
+    PostLike.find_by(user: current_user, post: @post).destroy
+    redirect_to @post
+  end
 
   # GET /posts/1
   # GET /posts/1.json

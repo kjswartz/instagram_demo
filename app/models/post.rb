@@ -13,8 +13,13 @@
 class Post < ActiveRecord::Base
   validates :photo, presence: true
   validates :user_id, presence: true
-  
+
   belongs_to :user
+  has_many :post_likes, dependent: :destroy
 
   mount_uploader :photo, PhotoUploader
+
+  def liked_by_user?(user)
+    post_likes.find_by(user: user)
+  end
 end
