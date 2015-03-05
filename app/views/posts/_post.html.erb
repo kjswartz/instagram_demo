@@ -20,6 +20,17 @@
       <% end %>
     <% end %>
     <%= post.like_status %>
+
+    <div class="well well-sm">
+      <% post.post_comments.each do |comment| %>
+        <div>
+          <%= image_tag comment.user.avatar.thumb.url, width: '20' %>
+          <strong><%= comment.user.username %></strong>
+          <%= comment.body %>
+        </div>
+      <% end %>
+
+    </div>
   </div>
   <div class="col-md-3">
   </div>
