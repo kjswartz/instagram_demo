@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:unlike, :like, :show, :edit, :update, :destroy]
-
+  before_action :authenticate_post, only: [:update, :edit, :destroy]
+  
   def like
     #PostLike.where(user: current_user, post: @post).first_or_create
 
@@ -66,6 +67,7 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
+
     @post.destroy
     respond_to do |format|
       format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
@@ -77,6 +79,10 @@ class PostsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])
+    end
+
+    def authenticate_post
+      redirect_to root_path if @post.user != current_user
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
