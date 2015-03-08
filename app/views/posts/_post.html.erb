@@ -1,14 +1,18 @@
 <div class="row">
   <div class="col-md-3 text-right">
-    <strong><%= post.user.username %></strong><br/>
-    <%= time_ago_in_words(post.created_at) %> ago
-    <%= image_tag post.user.avatar.thumb.url, class: "user_avatar" %>
+    <ul>
+      <li><%= image_tag post.user.avatar.thumb.url, class: "user_avatar" %></li>
+      <li>
+        <strong><%= post.user.username %></strong><br>
+        <%= time_ago_in_words(post.created_at) %> ago
+      </li>
+    </ul>
   </div>
-  <div class="col-md-6">
+  <div class="col-md-6" style="width:510px;">
     <div>
       <%= link_to image_tag(post.photo.feed.url), post %>
     </div>
-    <%= post.description %>
+    <%= post.description %><br>
     <% if post.liked_by_user?(current_user) %>
       <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
       <%= form_tag(unlike_post_path(post), method: 'delete') do %>
@@ -21,7 +25,7 @@
     <% end %>
     <%= post.like_status %>
 
-    <div class="well well-sm">
+    <div class="well well-sm" style="width:510px;">
       <% post.post_comments.each do |comment| %>
         <div>
           <%= image_tag comment.user.avatar.thumb.url, width: '20' %>

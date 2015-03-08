@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
   # Validations
   validates :username, presence: true
   validates :name, presence: true
-  validates :avatar, presence: true
+  # validates :avatar, presence: true
   validates :bio, length: { maximum: 500 }
   validates_format_of :website, :with => URI.regexp, :allow_blank => true
 

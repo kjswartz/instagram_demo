@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :signed_in?
 
   def current_user
-    @current_user ||= User.find_by(username: 'kyle')
+    @current_user ||= User.find_by(username: 'kjs')
   end
 
   def signed_in?
